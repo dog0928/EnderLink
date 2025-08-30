@@ -12,8 +12,8 @@
     "watch": "tsc -w",
     "lint": "eslint -c .eslintrc --ext .ts ./src",
     "app:dev": "tsc && concurrently vite \" electron .\" \"tsc -w\"",
-    "app:build": "npm run vite:build && tsc && electron-builder --win --x64 --publish never",
-    "app:publish": "npm run vite:build && tsc && electron-builder --win --x64 --publish always",
+    "app:build": "npm run vite:build && tsc && electron-builder --publish never",
+    "app:publish": "npm run vite:build && tsc && electron-builder --publish always",
     "app:preview": "npm run vite:build && tsc && electron ."
   },
   "build": {
@@ -38,6 +38,18 @@
       ],
       "icon": "build/icon.ico",
       "artifactName": "${productName}-Installer-${version}.${ext}"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
     },
     "nsis": {
       "oneClick": false,
