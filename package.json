@@ -18,7 +18,7 @@
     "app:preview": "npm run vite:build && tsc && electron ."
   },
   "build": {
-    "appId": "enderlink",
+    "appId": "com.yadokari.enderlink",
     "productName": "EnderLink",
     "asar": true,
     "afterSign": "scripts/notarize.mjs",
