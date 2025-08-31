@@ -92,6 +92,17 @@ GitHub: [Issue](https://github.com/yadokari1130/EnderLink/issues)
 # ダウンロード
 ## [https://github.com/yadokari1130/EnderLink/releases](https://github.com/yadokari1130/EnderLink/releases)
 
+## CLI のダウンロード
+GitHub Actions の [Build ワークフロー](https://github.com/yadokari1130/EnderLink/actions/workflows/build.yml)
+から `elder-cli` アーティファクトをダウンロードし、展開してください。
+展開したディレクトリで以下のように実行できます。
+
+```bash
+./elder start <serverName>
+```
+
+実行前に `GITHUB_REPOSITORY` と `GITHUB_TOKEN` を環境変数として設定する必要があります。
+
 # インストール
 ダウンロードした`EnderLink-Installer-x.x.x.exe`(`x.x.x`はバージョン)をダブルクリックし、インストールします  
 インストーラーを実行すると以下のような画面が出る場合があります  
