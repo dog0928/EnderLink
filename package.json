@@ -4,22 +4,27 @@
   "version": "1.0.6",
   "author": "yadokari1130",
   "main": "dist/electron/main/main.js",
+  "bin": {
+    "elder": "bin/elder.js"
+  },
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "vite:dev": "vite",
     "vite:build": "vue-tsc --noEmit && vite build",
     "vite:preview": "vite preview",
     "ts": "tsc",
     "watch": "tsc -w",
-    "lint": "eslint -c .eslintrc --ext .ts ./src",
+    "lint": "tsc --noEmit",
     "app:dev": "tsc && concurrently vite \" electron .\" \"tsc -w\"",
     "app:build": "npm run vite:build && tsc && electron-builder --publish never",
     "app:publish": "npm run vite:build && tsc && electron-builder --publish always",
     "app:preview": "npm run vite:build && tsc && electron ."
   },
   "build": {
-    "appId": "enderlink",
+    "appId": "com.yadokari.enderlink",
     "productName": "EnderLink",
     "asar": true,
+    "afterSign": "scripts/notarize.mjs",
     "directories": {
       "buildResources": "assets",
       "output": "release/${version}"
@@ -49,6 +54,9 @@
           ]
         }
       ],
+      "hardenedRuntime": true,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
       "artifactName": "${productName}-${version}-${arch}.${ext}"
     },
     "nsis": {
@@ -101,7 +109,7 @@
     "vue-tsc": "^0.34.7"
   },
   "engines": {
-    "node": "20.12.1"
+    "node": "^20.12.1"
   },
   "resolutions": {
     "@types/mime": "3.0.4"
