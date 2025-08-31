@@ -21,8 +21,21 @@
 さらに、取ったバックアップまで簡単に戻すことができます
 
 ## GUI上で設定可能
-サーバーの細かな設定をGUI上で変更可能です  
+サーバーの細かな設定をGUI上で変更可能です
 `server.properties`の内容や、サーバーアイコン、OP権限、ホワイトリスト、ワールド、プラグイン等を設定可能です
+
+## CLI版
+コマンドラインからサーバーの操作を行うためのCLIが同梱されています
+以下のように実行します
+
+```bash
+npx elder start <server>
+npx elder stop <server>
+npx elder status <server>
+```
+
+GitHubリポジトリとトークンは環境変数`GITHUB_REPOSITORY`,`GITHUB_TOKEN`を設定するか、
+`--repo`と`--token`オプションで指定してください
 
 <!-- omit in toc -->
 # 注意
